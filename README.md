@@ -26,7 +26,7 @@ torch
 
 ![data_performance_combined](https://github.com/AronSchulman/DTI-reviewer/assets/63584295/3366cd95-63dc-43ee-9974-6380f24e350d)
 
-A: The composition of training data for each document classifier, balanced to contain equal proportions of positive and negative documents as shown in green and red, respectively. B: The document classifiers were trained with a stratified five-fold cross-validation. Thus, for each document category, we train and evaluate five binary classifiers. The blue and orange bars show the average accuracies and binary F1-scores derived from the five classifiers, respectively, and the black vertical lines indicate the standard errors of the mean (SEM). Note: the y-axis starts from 0.80 to better show the differences between the 16 classification tasks.
+**A**: The composition of training data for each document classifier, balanced to contain equal proportions of positive and negative documents as shown in green and red, respectively. **B**: The document classifiers were trained with a stratified five-fold cross-validation. Thus, for each document category, we train and evaluate five binary classifiers. The blue and orange bars show the average accuracies and binary F1-scores derived from the five classifiers, respectively, and the black vertical lines indicate the standard errors of the mean (SEM). Note: the y-axis starts from 0.80 to better show the differences between the 16 classification tasks.
 
 ## Hyperparameters
 
