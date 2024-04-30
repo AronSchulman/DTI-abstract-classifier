@@ -1,0 +1,5 @@
+{
+    "categories" : ["Machine Learning", "Deep Learning", "Attention-based", "Docking", "Classification", "Regression", "Cross-validation", "Independent testing", "SOTA comparison", "Experimental validation", "Accuracy", "RMSE", "AUROC", "Spearman/Pearson", "F1-score", "Other"],
+    "input_file" : "./example_input.csv",
+    "save_path" : "./data/predictions"
+}
