@@ -5,22 +5,22 @@ Code repository for the manuscript "Validation guidelines for drug-target predic
 ## User Instructions
 
 DTI-reviewer is a tool for classifying texts based on the following 16 categories: Machine Learning, Deep Learning, Attention-based, Docking, Classification, Regression, Cross-validation, Independent testing, SOTA comparison, Experimental validation, Accuracy, RMSE, AUROC, Spearman/Pearson, F1-score, and Other metric.
-The binary classification is done with 16 fine-tuned models based BioMed-RoBERTa.
+The binary classification is done with 16 fine-tuned models based on `BioMed-RoBERTa` [1].
 
 To classify your texts, follow these steps:
 
 1. Provide a single .csv file with your texts to be classified as input. The first line of the file should be titled "text". See ´example_input.csv´ for reference.
-2. Specify the relevant classification categories in the ´user_prediction_config.json´ file. Also specify the name of the input file and the save path.
-3. Navigate to the ´src/´ directory, then on the command line run ´python make_predictions.py´.
+2. Specify the relevant classification categories in the `user_prediction_config.json` file. Also specify the name of the input file and the save path.
+3. Navigate to the `src/` directory, then on the command line run `python make_predictions.py`.
 
 The code uses an ensemble of 5 category-specific models for prediction. As output, you will find the predictions by each individual model, as well as classifications based on majority votes for all provided text entries. Each category will output a separate file.
 
-To run ´make_predictions.py´, you require the following packages:
-´´´
+To run `make_predictions.py`, you require the following packages:
+```
 pandas==2.2.1
 transformers==4.38.1
 torch
-´´´
+```
 
 ## Model performance
 
@@ -34,3 +34,7 @@ A: The composition of training data for each document classifier, balanced to co
 ![hyperparams](https://github.com/AronSchulman/DTI-reviewer/assets/63584295/84a8c6fc-0100-476a-b8ce-4e9c7d67059b)
 
 The search space and optimal hyperparameters for each binary classifier after 20 iterations of random search. Each iteration was 10 epochs in duration. The hyperparameter search space was kept the same for all the categories.
+
+## References
+
+[1] Gururangan, Suchin, et al. "Don't stop pretraining: Adapt language models to domains and tasks." arXiv preprint arXiv:2004.10964 (2020).
