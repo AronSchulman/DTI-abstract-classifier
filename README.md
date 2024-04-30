@@ -24,7 +24,8 @@ torch
 
 ## Model performance
 
-![data_performance_combined](https://github.com/AronSchulman/DTI-reviewer/assets/63584295/e22c4ec9-f8d5-4422-8bd5-aa07fb3d2e1e)
+![training_data_distribution](https://github.com/AronSchulman/DTI-reviewer/assets/63584295/a8d9d452-7190-4c47-9aac-60b179484249)
+
 
 A: The composition of training data for each document classifier, balanced to contain equal proportions of positive and negative documents as shown in green and red, respectively. B: The document classifiers were trained with a stratified five-fold cross-validation. Thus, for each document category, we train and evaluate five binary classifiers. The blue and orange bars show the average accuracies and binary F1-scores derived from the five classifiers, respectively, and the black vertical lines indicate the standard errors of the mean (SEM). Note: the y-axis starts from 0.80 to better show the differences between the 16 classification tasks.
 
