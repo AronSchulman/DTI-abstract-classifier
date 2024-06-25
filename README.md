@@ -9,7 +9,7 @@ The binary classification is done with 16 fine-tuned models based on BioMed-RoBE
 
 To classify your texts, follow these steps:
 
-1. Provide a single .csv file with your texts to be classified as input. The first line of the file should be titled "text". See `example_input.csv` for reference.
+1. Provide a single .csv file with your texts to be classified as input. The first line of the file should be the title, "text". See `example_input.csv` for reference.
 2. Specify the relevant classification categories in the `user_prediction_config.json` file. Also specify the name of the input file and the save path.
 3. Navigate to the `src/` directory, then on the command line run `python make_predictions.py`.
 
