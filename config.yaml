@@ -1,0 +1,76 @@
+##################################################################################
+##################################################################################
+### This is a YAML file for configuring everything within the code repository. ###
+##################################################################################
+##################################################################################
+
+##################################################################################
+############ PART I: from a list of PubMed IDs to necessary metadata. ############
+##################################################################################
+### You have a list of PubMed IDs from a search query. Paste it below after    ###
+### the "pmids" variable. The IDs should be one string with comma separation,  ###
+### exactly as in the given example. Please also provide a save location for   ###
+### the resulting file.                                                        ###
+##################################################################################
+
+pmids: "35598299,37094465,37244151,32142454" # List of PubMed IDs as comma-separated string.
+metadata_save_dir: "data/extracted_abstracts_topic_x.csv" # Save location for the resulting file.
+
+##################################################################################
+######################## PART II: hyperparameter tuning. #########################
+##################################################################################
+### You have a .csv file containing text (e.g. title + abstract) and a binary  ###
+### label (1 or 0). You can now tune the hyperparameters of a transformer-     ###
+### based model. Enter the needed configurations below. The provided search    ###
+### spaces for hyperparameters act as a decent starting point for any model.   ###
+##################################################################################
+
+pretrained_model_name: "allenai/biomed_roberta_base" # The pretrained model you want to use as named in the huggingface repository.
+tune_data: "data/train_category_x.csv" # Location of the data file used for tuning.
+
+tune_log_dir: "/full/path/to/cache/huggingface_models" # Logging directory for Ray and Huggingface libraries, most likely not interesting data by itself.
+tune_save_dir: "data/hyperparameter_optimization_results.csv" # Where to save the summary results of the hyperparameter optimization.
+
+seed: 42424242 # Random seed for the trials.
+num_trials: 10 # How many trials for the random search.
+num_epochs: 10 # How many epochs per trial.
+learning_rate: # Search space for the learning rate.
+    - 1e-6 # Lower bound.
+    - 1e-3 # Upper bound.
+weight_decay: # Search space for the weight decay.
+    - 1e-3 # Lower bound.
+    - 1e-1 # Upper bound.
+batch_size: # Discrete values for batch size search space.
+    - 4
+    - 8
+    - 16
+    - 32
+    
+##################################################################################
+########################## PART III: model training. #############################
+##################################################################################
+### You have optimized the hyperparameters. Add here the best ones for final   ###
+### model training with cross-validation. As a result, you will have as many   ###
+### models as there are folds in the CV.                                       ###
+##################################################################################
+
+huggingface_token: "cache/huggingface_models/token" # The location of your access token. Needed for saving your trained models.
+HF_user_name: "BaronSch" # Your huggingface user name. Needed for downloading models later.
+train_data: "data/train_category_x.csv" # Location of the training data file. Note: no independent testing provided currently! Should at least contain columns called 'text' and 'label'.
+cv_num_splits: 5 # Number of splits for stratified cross-validation. Also used in parts II and IV.
+train_batch_size: 8
+train_learning_rate: 0.00008861577452533074
+train_weight_decay:  0.0029210748185657135
+train_epochs: 10
+model_save_name: "category_x" # Any descriptive name of choice for the model, so you will recognize it in your Huggingface account. The models are not saved locally. Also used in part IV.
+ 
+##################################################################################
+################## PART IV: making predictions on new data. ######################
+##################################################################################
+### You are now ready to classify new data with your trained models. You will  ###
+### get individual predictions from [num_cv] models, as well as two ensemble   ###
+### results: majority voting and unanimous voting.                             ###
+##################################################################################
+
+data_to_classify: "data/3286_abstracts_to_predict.csv" # Location of file to be predicted. Should at least contain a column called 'text'.
+classification_save_dir: "data/predicted_labels_category_x.csv" # Location of file with complete predictions.

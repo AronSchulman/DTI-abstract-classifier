@@ -1,0 +1,11 @@
+numpy==1.26.4
+pandas==2.0.3
+torch==2.3.0
+transformers==4.38.1
+ray==2.31.0
+tqdm==4.66.2
+pyyaml==6.0.1
+scikit-learn==1.5.0
+metapub==0.5.7
+evaluate==0.4.2
+accelerate==0.31.0
