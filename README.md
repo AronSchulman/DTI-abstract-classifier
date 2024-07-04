@@ -42,6 +42,8 @@ We have provided the script `extract_abstracts_from_pubmed.py` for fetching arti
 
 You can optimize and train your own models with the scripts `tune_abstract_classifier.py` and `train_abstract_classifier.py`, respectively. Configure your tuning and training at `config.yaml`. At minimum, the input `.csv` files should contain two columns: `text` and `label`. Note: the data in `data/train` contain the name of the category (e.g. `Accuracy`) instead of `label`.
 
+You will need to create a Huggingface account and an access token (https://huggingface.co/docs/hub/en/security-tokens) for training the models. Place the token into the `cache/token` file.
+
 ## References
 
 [1] Gururangan, Suchin, et al. "Don't stop pretraining: Adapt language models to domains and tasks." arXiv preprint arXiv:2004.10964 (2020).
