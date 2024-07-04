@@ -62,7 +62,6 @@ train_batch_size: 8
 train_learning_rate: 0.00008861577452533074
 train_weight_decay:  0.0029210748185657135
 train_epochs: 10
-model_save_name: "category_x" # Any descriptive name of choice for the model, so you will recognize it in your Huggingface account. The models are not saved locally. Also used in part IV.
  
 ##################################################################################
 ################## PART IV: making predictions on new data. ######################
@@ -74,3 +73,4 @@ model_save_name: "category_x" # Any descriptive name of choice for the model, so
 
 data_to_classify: "data/3286_abstracts_to_predict.csv" # Location of file to be predicted. Should at least contain a column called 'text'.
 classification_save_dir: "data/predicted_labels_category_x.csv" # Location of file with complete predictions.
+model_save_name: "category_x" # The desired category to download from the Hugging Face cloud. Also used in part III for your own models.
