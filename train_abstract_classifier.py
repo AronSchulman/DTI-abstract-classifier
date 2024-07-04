@@ -6,7 +6,6 @@ warnings.simplefilter('ignore')
 import yaml
 import numpy as np
 import pandas as pd
-from sklearn import metrics
 from sklearn.model_selection import StratifiedKFold
 import evaluate
 from transformers import RobertaTokenizer, AutoModelForSequenceClassification, DataCollatorWithPadding, TrainingArguments, Trainer
