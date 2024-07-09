@@ -20,7 +20,9 @@ To classify your texts, follow these steps:
 2. Specify the path to the input data in the `config.yaml` file under PART IV in the file. Also specify the save path and the category from the above 16 options.
 3. On the command line navigate to `DTI-abstract-classifier` directory and run `python make_predictions.py`.
 
-The code uses an ensemble of 5 category-specific models for prediction. As output, you will find the predictions by each individual model, as well as classifications based on majority votes for all provided text entries. Each category will output a separate file.
+The code uses an ensemble of 5 category-specific models for prediction. The models can also be run on CPU relatively swiftly (~2s/abstract during local testing on CPU).
+
+As output, you will find the predictions by each individual model, as well as classifications based on majority votes for all provided text entries. Each category will output a separate file.
 
 ## Model performance
 
