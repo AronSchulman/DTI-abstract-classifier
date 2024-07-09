@@ -55,7 +55,7 @@ batch_size: # Discrete values for batch size search space.
 ##################################################################################
 
 huggingface_token: "cache/huggingface_models/token" # The location of your access token. Needed for saving your trained models.
-HF_user_name: "BaronSch" # Your huggingface user name. Needed for downloading models later.
+HF_user_name: "BaronSch" # Your huggingface user name. Needed for downloading models later. Also used in part IV.
 train_data: "data/train_category_x.csv" # Location of the training data file. Note: no independent testing provided currently! Should at least contain columns called 'text' and 'label'.
 cv_num_splits: 5 # Number of splits for stratified cross-validation. Also used in parts II and IV.
 train_batch_size: 8
@@ -71,6 +71,6 @@ train_epochs: 10
 ### results: majority voting and unanimous voting.                             ###
 ##################################################################################
 
-data_to_classify: "data/3286_abstracts_to_predict.csv" # Location of file to be predicted. Should at least contain a column called 'text'.
+data_to_classify: "data/3286_data_from_query.csv" # Location of file to be predicted. Should at least contain a column called 'text'.
 classification_save_dir: "data/predicted_labels_category_x.csv" # Location of file with complete predictions.
-model_save_name: "category_x" # The desired category to download from the Hugging Face cloud. Also used in part III for your own models.
+model_save_name: "category_x" # The desired category to download from the Hugging Face cloud. Also used in part III for your own models. Note! Proper models saved in BaronSch only use the 4 first letters of a category in their name! E.g. "Accu", "Inde", "Mach" etc. (You can ignore the numbers in the names, they are handled in the source code.)
