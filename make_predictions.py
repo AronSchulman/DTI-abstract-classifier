@@ -17,7 +17,6 @@ def main():
     label2id = {"NO": 0, "YES": 1}
 
     df_abs = pd.read_csv(cfg["data_to_classify"])
-    df_abs = df_abs.iloc[0:20]
     pipes = {}
     for i in range(cfg["cv_num_splits"]):
         pipes[f"{cfg['model_save_name']}_{i}"] = pipeline(model=f"{cfg['HF_user_name']}/{cfg['model_save_name']}_{i}")
